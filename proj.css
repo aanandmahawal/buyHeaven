@@ -1,0 +1,507 @@
+* {
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: border-box;
+}
+
+/*************************  Navbar  ************************/
+.navbar {
+    height: 60px;
+    background-color: #0f1111;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.logo {
+    width: 15vw;                /* Make the container width relative to viewport width */
+    height: 50px;               /* Let the height adjust automatically based on the image aspect ratio */
+    display: flex;
+    margin: 2px;
+    justify-content: center;    /* Center the image horizontally */
+    align-items: center;        /* Center the image vertically */
+    border: 1px solid black;
+    transition: all 0.3s ease;
+}
+
+.logo img {
+    width: 98%;                /* Make the image fill the container's width */
+    height: auto;               /* Maintain the aspect ratio of the image */
+    max-height: 100%;           /* Ensure it doesn't exceed the container's max height */
+    object-fit: contain;        /* Ensure the logo scales within the container without distortion */
+}
+
+
+
+/* Deliver to */
+#dt {
+    font-size: 0.8rem;
+    color: #cccccc;
+    margin-left: 10px;
+    padding: 4px;
+}
+
+#ind {
+    padding: 4px;
+    font: 0.5rem;
+}
+
+.logo:hover,.loc:hover {
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.icon {
+    display: flex;
+}
+
+#Filters{
+    color: white;
+    padding: 8px;
+    background-color: #0f1111;
+    margin: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+#Filters:hover{
+    background-color: #45a049;
+}
+
+
+#flag{
+    display: flex;
+    margin: 2px;
+    justify-content: center;
+    align-items: center;
+    color: rgb(24, 23, 21);
+}
+
+
+#cart {
+    margin: 6px;
+    width: 14%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px; /* Adjust the font size of the cart link */
+    
+
+  }
+  
+  #bag-item-count {
+    margin: 5px;
+    background-color: #f16565;
+    color: white; /* Text color */
+    border-radius: 50%;
+    padding: 2px;
+    font-size: 14px; /* Font size of the number */
+    font-weight: bold;
+    min-width: 16px;
+    min-height: 16px;
+    text-align: center;
+    line-height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+#cartLink,#home{  
+    color:white;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#cartLink:hover,#home:hover{
+    color:blueviolet;
+}
+
+
+/* Restaurant Cards Container */
+#root {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Individual Restaurant Card */
+.card {
+    width: 315px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Card Image */
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Card Content */
+.card-content {
+    padding: 10px;
+}
+
+/* Item Name and Rating */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-header .rating {
+    background-color: #f4b400;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+}
+
+/*  Price */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+
+/* Style for the Add to Cart button */
+.addButton {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 7px 20px;
+    font-size: 16px;
+    margin: 10px;
+    margin-left: 80px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .addButton:hover {
+    background-color: #2980b9;
+  }
+  
+
+  
+  /* Style for the notification (toast) */
+  .toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #2ecc71;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 9999;
+    right: 30px;  /* Position it to the top right */
+    top: 30px;    /* 30px from the top */
+    font-size: 17px;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0.5s ease, top 0.3s ease;
+  }
+  
+  /* Style for showing the toast */
+  .toast.show {
+    visibility: visible;
+    opacity: 1;
+    top: 50px; /* It moves slightly down when showing */
+  }
+  
+
+/* Filter options  Pop up */
+
+#filterPopup {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+
+.filterOption {
+    margin: 10px 0;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+/* Restaurant Cards Container */
+#root {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+
+.panel {
+    height: 40px;
+    display: flex;
+    background-color: #222f3d;
+    align-items: center;
+    color: #f3f3f3;
+}
+
+.menu {
+    display: flex;
+    justify-content: left;
+}
+
+.option {
+    padding-left: 50px;
+
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+
+.shop {
+    padding-left: 370px;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+}
+
+#herosection {
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+}
+@media (min-width: 768px) { /* For laptop and above */
+    #herosection{
+      height: 320px;
+    }
+  }
+
+
+#clk {
+    color: #007185;
+    text-decoration: none;
+}
+
+
+
+/*************************** Footer ***********************/
+footer {
+    margin-top: 15px;
+}
+
+.panel1 {
+    background-color: #37475a;
+    height: 50px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.85rem;
+
+}
+
+.panel2 {
+    display: flex;
+    justify-content: space-around;
+    background-color: #222f3d;
+    color: white;
+    height: 200px;
+}
+
+.about {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    color: #dddddd;
+    margin-top: 10px;
+}
+
+.about p {
+    color: rgb(49, 153, 232);
+}
+
+.panel3 {
+    border-top: 0.5px solid white;
+    background-color: #222f3d;
+    height: 70px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.amzlogo {
+    background-image: url("logo.jpeg");
+    height: 50px;
+    background-size: cover;
+    width: 100px;
+    border: 1px solid #222f3d;
+
+}
+
+.panel4 {
+    background-color: #0f1111;
+    color: white;
+    height: 80px;
+    text-align: center;
+}
+
+.pages {
+    font-size: 0.75rem;
+    padding: 10px;
+}
+
+.copyright {
+    font-size: 0.75rem;
+    padding: 5px;
+}
+
+
+
+
+.bag-item-container {
+    position: relative;
+    width: 80vw;    /* 80% of viewport width for mobile by default */
+    margin: 1% auto;  /* Center the div */
+    border: 2px solid #565c48;
+    border-radius: 22px;
+    display: flex;
+    justify-content:flex-start;  /* Distribute content evenly */
+    align-items: center;
+    padding: 5px;
+    height: 220px;  /* Height will adjust based on content */
+    
+}
+  
+  @media (min-width: 768px) { /* For laptop and above */
+    .bag-item-container {
+      width: 60vw;
+    }
+  }
+
+.bag-item-img {
+    width: 50%;  /* Image takes up 40% of the container */
+    margin-left: 2%;
+    border-radius: 10px;
+    height: 200px;  /* Automatically adjusts height based on image aspect ratio */
+    background-color: #2ecc71;
+}
+
+.item-right-part {
+    font-size: 1rem;  /* Font size based on root font size */
+    margin-left: 2%;
+    display: flex;
+    flex-direction: column;  /* Arrange text vertically */
+}
+
+.item-name {
+    position: absolute;
+    top: 10px;    
+    font-size: 1.3rem;  /* Smaller, responsive font size */
+    font-weight: bold;
+}
+
+.remove {
+    position: absolute;  /* Position it relative to the parent .bag-item-container */
+    top: 4px;           /* Adjust the distance from the top */
+    right: 5px;         /* Adjust the distance from the right */
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #5c5c36;
+    width: 25px;
+    height: 25px;
+    padding: 4px 15px;
+    background-color: #e0d4dd;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+.company{
+    position: absolute;
+    top: 40px;
+    font-size: 1.2rem;  /* Font size relative to the base size */
+    font-weight: bold;
+}
+
+.price {
+    position: absolute;
+    top: 80px;
+    font-size: 1.2rem;  /* Smaller, controlled font size */
+}
+
+
+
+.delivery {
+    position: absolute;
+    top: 125px;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+}
+
+
+/* Calculation */
+.cal{  
+    height:220px;
+    width : 60%;
+    margin:20px;
+    margin-left:20%;
+    font-size:18px;
+     padding:10px;
+     background-color:#a5ebb6;
+     border-radius:12px;
+     
+}
+
+.total-mrp,.discount-on-mrp,.total-amt,.price-header{
+    
+    text-align: center;
+    font-size:20px;
+    font-weight:250;
+    margin-top:14px;
+}
+.value{
+    
+    text-align: center;
+    margin-left:30px;
+    font-weight:bold;
+}
+
+
+
