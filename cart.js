@@ -1,5 +1,5 @@
 let bagItemObjects=[];
-onLoad();
+onLoad()
 function onLoad() {
   loadBagItemObjects();
   displayBagItems();
@@ -113,4 +113,5 @@ function generateItemHtml(item) {
 
 document.querySelector('#backToTop').addEventListener( 'click',()=> {
   window.scrollTo({ top: 0, behavior: 'smooth' });
+
 })
