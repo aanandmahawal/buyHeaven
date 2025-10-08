@@ -266,4 +266,5 @@ if(closeFilter) closeFilter.addEventListener('click',()=>{
 
 document.querySelector('#backToTop').addEventListener( 'click',()=> {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
 })
